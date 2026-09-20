@@ -1,0 +1,28 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.github.pravezhang2024.copytonotepad</id>
+    <name>copy-to-notepad</name>
+    <vendor>pravezhang2024</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.terminal</depends>
+
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
+    <idea-version since-build="253" until-build="253.*"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="CopyOut" displayType="BALLOON"/>
+        <postStartupActivity implementation="com.github.pravezhang2024.copytonotepad.CopyOutActionRegistrar"/>
+    </extensions>
+
+    <actions>
+        <action id="CopyOut.CopyOutAction"
+                class="com.github.pravezhang2024.copytonotepad.actions.CopyOutAction"
+                text="CopyOut!"
+                description="Save text to a temp .properties file and open it with VBCopyO.exe">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
