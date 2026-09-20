@@ -5,14 +5,24 @@
     <vendor>pravezhang2024</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.terminal</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
+    <idea-version since-build="253" until-build="253.*"/>
+
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.pravezhang2024.copytonotepad.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <notificationGroup id="CopyOut" displayType="BALLOON"/>
+        <postStartupActivity implementation="com.github.pravezhang2024.copytonotepad.CopyOutActionRegistrar"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.pravezhang2024.copytonotepad.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="CopyOut.CopyOutAction"
+                class="com.github.pravezhang2024.copytonotepad.actions.CopyOutAction"
+                text="CopyOut!"
+                description="Save text to a temp .properties file and open it with VBCopyO.exe">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>

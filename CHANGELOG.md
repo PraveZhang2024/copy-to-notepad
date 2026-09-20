@@ -3,5 +3,12 @@
 # copy-to-notepad Changelog
 
 ## [Unreleased]
+
+## [0.1.0]
 ### Added
-- Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+- CopyOut! context menu in the editor, Project view, and Terminal
+- Export selected text, clipboard text, or a text file to a temp `.properties` and open it with VBCopyO.exe
+- Balloon warnings for binary files, empty text, and folders
+
+### Changed
+- Target IntelliJ IDEA / PyCharm 2025.3 (build 253)
